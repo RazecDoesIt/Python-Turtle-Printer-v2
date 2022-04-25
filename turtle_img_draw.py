@@ -7,10 +7,10 @@ import math
 import sys
 
 
-img_org = cv.resize(cv.imread(r'C:\Users\julio\Desktop\site\imgs\onda.jpg'), (438, 300))
+img_org = cv.resize(cv.imread(r'IMAGE_PATH_HERE'), (438, 300)) # dont forget to change the image path and the dimensions
 img_gray = cv.cvtColor(img_org, cv.COLOR_BGR2GRAY)
 
-(thresh, img_bw) = cv.threshold(img_gray, 150, 255, 0)
+(thresh, img_bw) = cv.threshold(img_gray, 150, 255, 0) # my threshold is set at 150 rgb value
 
 cv.imshow('bw', img_bw)
 
