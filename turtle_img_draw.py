@@ -7,10 +7,11 @@ import math
 import sys
 
 
-img_org = cv.resize(cv.imread(r'IMAGE_PATH_HERE'), (438, 300)) # dont forget to change the image path and the dimensions
+img_org = cv.resize(cv.imread(r'IMAGE_PATH'), (300, 300))
+# img_inv = cv.bitwise_not(img_org)
 img_gray = cv.cvtColor(img_org, cv.COLOR_BGR2GRAY)
 
-(thresh, img_bw) = cv.threshold(img_gray, 150, 255, 0) # my threshold is set at 150 rgb value
+(thresh, img_bw) = cv.threshold(img_gray, 150, 255, 0)
 
 cv.imshow('bw', img_bw)
 
@@ -24,7 +25,7 @@ t.screensize(img_width, img_height)
 t.pencolor('black')
 t.resizemode('user')
 t.shape('classic')
-t.speed('fastest')
+t.tracer(0)
 # t.pensize()
 
 for i in range(int(img_height/2), int(img_height/-2),  -1):
@@ -41,6 +42,7 @@ for i in range(int(img_height/2), int(img_height/-2),  -1):
             t.penup()
             t.forward(1)
     t.update()
+t.Screen().exitonclick()
 
 
 
